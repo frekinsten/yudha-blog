@@ -16,8 +16,8 @@ class BlogController extends Controller
 
     public function __construct(Category $category, Tag $tag)
     {
-        $this->categories = $category->select('id', 'category_name')->orderByDesc('id')->get();
-        $this->tags = $tag->select('id', 'tag_name')->orderByDesc('id')->get();
+        $this->categories = $category->select('id', 'category_name', 'slug')->orderByDesc('id')->get();
+        $this->tags = $tag->select('id', 'tag_name', 'slug')->orderByDesc('id')->get();
     }
 
     public function index(Request $request)
